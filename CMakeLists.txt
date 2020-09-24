@@ -3,4 +3,4 @@ project(Designer)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Designer main.cpp designer.cpp designer.h)
+add_executable(Designer tests.cpp designer.cpp designer.h)
