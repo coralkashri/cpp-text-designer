@@ -5,32 +5,32 @@ namespace designer {
         return b ? "1" : "0";
     }
 
-    std::string make_colored(const std::string &text, Color color, bool bold) {
+    std::string make_colored(const std::string &text, color color, bool bold) {
         std::string new_text;
         new_text = "\033[";
         switch (color) {
-            case Color::BLACK:
+            case color::BLACK:
                 new_text += bool_to_string(bold) + ";30m" + text;
                 break;
-            case Color::RED:
+            case color::RED:
                 new_text += bool_to_string(bold) + ";31m" + text;
                 break;
-            case Color::GREEN:
+            case color::GREEN:
                 new_text += bool_to_string(bold) + ";32m" + text;
                 break;
-            case Color::YELLOW:
+            case color::YELLOW:
                 new_text += bool_to_string(bold) + ";33m" + text;
                 break;
-            case Color::BLUE:
+            case color::BLUE:
                 new_text += bool_to_string(bold) + ";34m" + text;
                 break;
-            case Color::MAGENTA:
+            case color::MAGENTA:
                 new_text += bool_to_string(bold) + ";35m" + text;
                 break;
-            case Color::CYAN:
+            case color::CYAN:
                 new_text += bool_to_string(bold) + ";36m" + text;
                 break;
-            case Color::WHITE:
+            case color::WHITE:
                 new_text += bool_to_string(bold) + ";37m" + text;
                 break;
         }
@@ -38,15 +38,15 @@ namespace designer {
         return new_text;
     }
 
-    std::string make_colored(const std::stringstream &text, Color color, bool bold) {
+    std::string make_colored(const std::stringstream &text, color color, bool bold) {
         return make_colored(text.str(), color, bold);
     }
 
-    std::string make_colored(const char *text, Color color, bool bold) {
+    std::string make_colored(const char *text, color color, bool bold) {
         return make_colored(std::string(text), color, bold);
     }
 
-    std::string make_conditioned_colored(const std::string &text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition) {
+    std::string make_conditioned_colored(const std::string &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
         if (condition) {
             return make_colored(text, true_color, true_bold);
         } else {
@@ -54,11 +54,11 @@ namespace designer {
         }
     }
 
-    std::string make_conditioned_colored(const std::stringstream &text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition) {
+    std::string make_conditioned_colored(const std::stringstream &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
         return make_conditioned_colored(text.str(), true_color, true_bold, false_color, false_bold, condition);
     }
 
-    std::string make_conditioned_colored(const char *text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition) {
+    std::string make_conditioned_colored(const char *text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
         return make_conditioned_colored(std::string(text), true_color, true_bold, false_color, false_bold, condition);
     }
 }

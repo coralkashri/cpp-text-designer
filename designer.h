@@ -5,7 +5,7 @@
 #include <sstream>
 
 namespace designer {
-    enum Color {
+    enum color {
         BLACK = -2,
         WHITE = -1,
         BLUE = 1,
@@ -16,12 +16,12 @@ namespace designer {
         CYAN = 6
     };
 
-    std::string make_colored(const std::string &text, Color color, bool bold);
-    std::string make_colored(const std::stringstream &text, Color color, bool bold);
-    std::string make_colored(const char *text, Color color, bool bold);
-    std::string make_conditioned_colored(const std::string &text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition);
-    std::string make_conditioned_colored(const std::stringstream &text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition);
-    std::string make_conditioned_colored(const char *text, Color true_color, bool true_bold, Color false_color, bool false_bold, bool condition);
+    std::string make_colored(const std::string &text, color color, bool bold);
+    std::string make_colored(const std::stringstream &text, color color, bool bold);
+    std::string make_colored(const char *text, color color, bool bold);
+    std::string make_conditioned_colored(const std::string &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
+    std::string make_conditioned_colored(const std::stringstream &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
+    std::string make_conditioned_colored(const char *text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
 };
 
 #endif //DESIGNER_DESIGNER_H
