@@ -17,11 +17,20 @@ namespace designer {
     };
 
     std::string make_colored(const std::string &text, color color, bool bold);
+
     std::string make_colored(const std::stringstream &text, color color, bool bold);
+
     std::string make_colored(const char *text, color color, bool bold);
+
+    std::string make_colored(const std::ostream &text, color color, bool bold);
+
     std::string make_conditioned_colored(const std::string &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
+
     std::string make_conditioned_colored(const std::stringstream &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
+
     std::string make_conditioned_colored(const char *text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
-};
+
+    std::string make_conditioned_colored(const std::ostream &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition);
+}
 
 #endif //DESIGNER_DESIGNER_H

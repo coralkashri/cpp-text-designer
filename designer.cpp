@@ -46,6 +46,12 @@ namespace designer {
         return make_colored(std::string(text), color, bold);
     }
 
+    std::string make_colored(const std::ostream& text, color color, bool bold) {
+        std::stringstream str;
+        str << text.rdbuf();
+        return make_colored(str, color, bold);
+    }
+
     std::string make_conditioned_colored(const std::string &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
         if (condition) {
             return make_colored(text, true_color, true_bold);
@@ -60,5 +66,11 @@ namespace designer {
 
     std::string make_conditioned_colored(const char *text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
         return make_conditioned_colored(std::string(text), true_color, true_bold, false_color, false_bold, condition);
+    }
+
+    std::string make_conditioned_colored(const std::ostream &text, color true_color, bool true_bold, color false_color, bool false_bold, bool condition) {
+        std::stringstream str;
+        str << text.rdbuf();
+        return make_conditioned_colored(str, true_color, true_bold, false_color, false_bold, condition);
     }
 }
